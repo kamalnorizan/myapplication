@@ -25,7 +25,7 @@ Route::get('/testroute/detail/abc', function(){
     echo 'This is my second route(Test route detail abc)';
 });
 
-Route::get('/testroute/detail/{id}', function(){
-    echo 'This is my second route(Test route detail)';
+Route::get('/testroute/detail/{id}', function($id){
+    echo 'This is my second route( Test route detail id: '.$id.' )';
 });
 
