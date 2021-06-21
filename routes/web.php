@@ -25,7 +25,16 @@ Route::get('/testroute/detail/abc', function(){
     echo 'This is my second route(Test route detail abc)';
 });
 
-Route::get('/testroute/detail/{id}', function($id){
-    echo 'This is my second route( Test route detail id: '.$id.' )';
-});
+// Route::get('/testroute/detail/{id}', function($id){
+//     echo 'This is my second route( Test route detail id: '.$id.' )';
+// })->whereNumber('id');
+
+
+// Route::get('/testroute/detail/{id}', function($id){
+//     echo 'This is my second route( Test route detailalpha id: '.$id.' )';
+// })->whereAlpha('id');
+
+Route::get('/testroute/detail/{id}/{name}', function($id, $name){
+    echo '<h1>This is my second route( '.$name.' detailalpha numeric id: '.$id.' )</h1>';
+})->whereNumber('id')->whereAlpha('name');
 
