@@ -22,13 +22,13 @@ Route::get('/routelearning', function () {
 });
 
 
-Route::get('/testroute', function(){
-    echo 'This is my first route';
-});
+Route::get('/learnrouteurl', function(){
+    echo '<h1>This is my first route</h1>';
+})->name('learnroute');
 
 Route::get('/testroute/detail/abc', function(){
     echo 'This is my second route(Test route detail abc)';
-});
+})->name('testroute');
 
 // Route::get('/testroute/detail/{id}', function($id){
 //     echo 'This is my second route( Test route detail id: '.$id.' )';

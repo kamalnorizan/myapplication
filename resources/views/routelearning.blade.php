@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-<a href="/testroute">Test route</a>
+<a href="{{route('learnroute')}}">Test route1</a>
+<a href="{{route('testroute')}}">Test route2</a>
+<a href="{{route('learnroute')}}">Test route3</a>
+<a href="{{route('learnroute')}}">Test route4</a>
 </body>
 </html>l
