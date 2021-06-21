@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/routelearning', function () {
+    return view('routelearning');
+});
+
+
 Route::get('/testroute', function(){
     echo 'This is my first route';
 });
@@ -37,4 +42,8 @@ Route::get('/testroute/detail/abc', function(){
 Route::get('/testroute/detail/{id}/{name}', function($id, $name){
     echo '<h1>This is my second route( '.$name.' detailalpha numeric id: '.$id.' )</h1>';
 })->whereNumber('id')->whereAlpha('name');
+
+Route::get('/testroute/detail7/{id}/{name}', function($id, $name){
+    echo '<h1>This is my second route( '.$name.' detailalpha numeric id: '.$id.' )</h1>';
+})->where('id','[0-9]+')->where('name','[A-Za-z]+');
 
