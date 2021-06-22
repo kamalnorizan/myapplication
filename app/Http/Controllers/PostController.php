@@ -13,7 +13,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        $posts = [
+            [
+                'title'=>'Masak apa hari ini?',
+                'body'=>'Gulai Ikan'
+            ],
+            [
+                'title'=>'Masak apa malam ini?',
+                'body'=>'Sambal Tempoyak'
+            ],
+            [
+                'title'=>'Hari ini pergi mana?',
+                'body'=>'Belajar Laravel di rumah sahaja.'
+            ],
+        ];
+        $comment = 1;
+        return view('posts.index',compact('posts','comment'));
     }
 
     /**
@@ -84,6 +99,9 @@ class PostController extends Controller
 
     public function displayName()
     {
-        echo 'My name is Kamal';
+        $name = 'Ahmad Kamal';
+        return view('posts.displayName',[
+            'nama'=>$name
+        ]);
     }
 }
