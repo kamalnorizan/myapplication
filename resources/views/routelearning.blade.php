@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-<a href="{{route('learnroute')}}">Test route1</a>
+</ul><a href="#">Test route1</a>
+<li>
+    <a href="{{route('learnrouteurltest')}}">Test route1</a>
+</li>
+<li><a href="{{route('learnroute')}}">Test route1</a></li>
+<li><a href="{{route('testroute.detail')}}">Route Detail</a></li>
+<li><a href="{{route('learnroute')}}">Test route1</a></li>
+<li><a href="{{route('learnroute')}}">Test route1</a></li>
+<ul>
 <a href="{{route('testroute')}}">Test route2</a>
 <a href="{{route('learnroute')}}">Test route3</a>
 <a href="{{route('learnroute')}}">Test route4</a>
