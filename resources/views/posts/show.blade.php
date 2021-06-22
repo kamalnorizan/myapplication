@@ -7,10 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Posts</h1>
-    {{ $comment }} <br>
-    @foreach ($posts as $index=>$post)
-        <a href="{{ route('posts.show',['post'=>$index]) }}">{{ $post['title'] }}</a> <br>
-    @endforeach
+<h1>Ini adalah blade Show</h1>
+{{ $post }}
 </body>
 </html>
