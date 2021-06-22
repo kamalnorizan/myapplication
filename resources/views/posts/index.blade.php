@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>Posts</h1>
+    {{ $comment }} <br>
+    @foreach ($posts as $post)
+        {{ $post['title'] }} <br>
+    @endforeach
 </body>
 </html>

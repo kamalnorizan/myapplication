@@ -27,7 +27,8 @@ class PostController extends Controller
                 'body'=>'Belajar Laravel di rumah sahaja.'
             ],
         ];
-        $comment = 1;
+        $comment = 'This is a new comment';
+        // compact('posts','comment')
         return view('posts.index',compact('posts','comment'));
     }
 
