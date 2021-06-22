@@ -8,11 +8,11 @@
 </head>
 <body>
 </ul><a href="#">Test route1</a>
-<li>
+{{-- <li>
     <a href="{{route('learnrouteurltest')}}">Test route1</a>
-</li>
+</li> --}}
 <li><a href="{{route('learnroute')}}">Test route1</a></li>
-<li><a href="{{route('testroute.detail')}}">Route Detail</a></li>
+<li><a href="{{route('testroute.detail',['id'=>'152','name'=> 'amirul'])}}">Route Detail</a></li>
 <li><a href="{{route('learnroute')}}">Test route1</a></li>
 <li><a href="{{route('learnroute')}}">Test route1</a></li>
 <ul>
