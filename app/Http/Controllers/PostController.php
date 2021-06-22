@@ -28,7 +28,10 @@ class PostController extends Controller
             ],
         ];
         $comment = 'This is a new comment';
-        // compact('posts','comment')
+        // return view('posts.index',[
+        //     'posts'=>$posts,
+        //     'comment'=>$comment
+        // ]);
         return view('posts.index',compact('posts','comment'));
     }
 
@@ -61,8 +64,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = $id;
-        return view('posts.show',compact('post'));
+
+        return view('posts.show',compact('id'));
     }
 
     /**
@@ -105,5 +108,29 @@ class PostController extends Controller
         return view('posts.displayName',[
             'nama'=>$name
         ]);
+    }
+
+    public function userposts()
+    {
+        $posts = [
+            [
+                'title'=>'Masak apa hari ini?',
+                'body'=>'Gulai Ikan',
+                'author'=>'Kamal'
+            ],
+            [
+                'title'=>'Masak apa malam ini?',
+                'body'=>'Sambal Tempoyak',
+                'author'=>'Amir'
+            ],
+            [
+                'title'=>'Hari ini pergi mana?',
+                'body'=>'Belajar Laravel di rumah sahaja.',
+                'author'=>'Kamal'
+            ],
+        ];
+
+        return view('posts.userposts',compact('posts'));
+
     }
 }

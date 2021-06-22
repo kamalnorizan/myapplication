@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Ini adalah blade Show</h1>
-{{ $id }}
+    @foreach ($posts as $post)
+        Title : {{ $post['title'] }} <br>
+        Body : {{ $post['body'] }} <br>
+        Author : {{ $post['author'] }} <hr>
+    @endforeach
 </body>
 </html>
