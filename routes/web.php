@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,33 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/routelearning', function () {
-    return view('routelearning');
-});
+// Route::get('/posts',[PostController::class,'index'])->name('posts.index');
+// Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
+// Route::post('/posts',[PostController::class,'store'])->name('posts.store');
+// Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
+// Route::get('/posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
+// Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
+// Route::delete('/posts/{post}',[PostController::class,'delete'])->name('posts.destroy');
+Route::get('/posts/displayName', [PostController::class,'displayName'])->name('posts.displayName');
 
-
-Route::get('/learnrouteurl', function(){
-    echo '<h1>This is my first route</h1>';
-})->name('learnroute');
-
-Route::get('/testroute/detail/abc', function(){
-    echo 'This is my second route(Test route detail abc)';
-})->name('testroute');
-
-// Route::get('/testroute/detail/{id}', function($id){
-//     echo 'This is my second route( Test route detail id: '.$id.' )';
-// })->whereNumber('id');
-
-
-// Route::get('/testroute/detail/{id}', function($id){
-//     echo 'This is my second route( Test route detailalpha id: '.$id.' )';
-// })->whereAlpha('id');
-
-Route::get('/testroute/detail/{id}/{name}', function($id, $name){
-    echo '<h1>This is my second route( '.$name.' detailalpha numeric id: '.$id.' )</h1>';
-})->whereNumber('id')->whereAlpha('name')->name('testroute.detail');
-
-Route::get('/testroute/detail7/{id}/{name}', function($id, $name){
-    echo '<h1>This is my second route( '.$name.' detailalpha numeric id: '.$id.' )</h1>';
-})->where('id','[0-9]+')->where('name','[A-Za-z]+');
-
+Route::resource('/posts', PostController::class);
