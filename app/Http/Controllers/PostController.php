@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Post;
+use DB;
 class PostController extends Controller
 {
     /**
@@ -13,20 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = [
-            [
-                'title'=>'Masak apa hari ini?',
-                'body'=>'Gulai Ikan'
-            ],
-            [
-                'title'=>'Masak apa malam ini?',
-                'body'=>'Sambal Tempoyak'
-            ],
-            [
-                'title'=>'Hari ini pergi mana?',
-                'body'=>'Belajar Laravel di rumah sahaja.'
-            ],
-        ];
+        $posts = Post::all();
+        $postsDB = DB::table('posts')->get();
+        dd($postsDB);
         $comment = 'This is a new comment';
         // return view('posts.index',[
         //     'posts'=>$posts,
