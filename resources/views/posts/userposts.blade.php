@@ -7,10 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach ($posts as $post)
+    {{-- {{ $posts }} --}}
+    {{-- @foreach ($posts as $post)
         Title : {{ $post['title'] }} <br>
         Body : {{ $post['body'] }} <br>
         Author : {{ $post['author'] }} <hr>
-    @endforeach
+    @endforeach --}}
+
+    @for ($i=0;$i< sizeOf($posts); $i++)
+        Title : {{ $posts[$i]['title'] }} <br>
+        Body : {{ $posts[$i]['body'] }} <br>
+        Author : {{ $posts[$i]['author'] }} <hr>
+    @endfor
+
+    
 </body>
 </html>

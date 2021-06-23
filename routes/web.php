@@ -27,4 +27,21 @@ Route::get('/', function () {
 Route::get('/posts/displayName', [PostController::class,'displayName'])->name('posts.displayName');
 
 Route::get('/posts/userposts', [PostController::class,'userposts'])->name('posts.userposts');
-Route::resource('/posts', PostController::class);
+Route::get('/posts/create2',[PostController::class,'create2'])->name('posts.create2');
+// Route::get('/posts',[PostController::class,'index'])->name('posts.index');
+// Route::get('/posts/{id}/edit',[PostController::class,'edit'])->whereNumber('id')->name('posts.edit');
+Route::resource('/posts', PostController::class)->only('index','edit');
+// Route::resource('/posts', PostController::class)->except('create','store','show','update','destroy');
+
+
+
+
+// Route::get('/posts/{post}/edit',[PostController::class,'edit'])->whereNumber('id')->name('posts.edit');
+// // Route::get('/posts',[PostController::class,'index'])->name('posts.index');
+// // Route::delete('/posts/{post}',[PostController::class,'delete'])->name('posts.destroy');
+// Resource (
+//     Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
+//     Route::post('/posts',[PostController::class,'store'])->name('posts.store');
+//     Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
+//     Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
+// )->except('index','edit','destroy');

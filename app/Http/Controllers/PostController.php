@@ -32,6 +32,8 @@ class PostController extends Controller
         //     'posts'=>$posts,
         //     'comment'=>$comment
         // ]);
+
+
         return view('posts.index',compact('posts','comment'));
     }
 
@@ -76,7 +78,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
     }
 
     /**
@@ -126,11 +128,14 @@ class PostController extends Controller
             [
                 'title'=>'Hari ini pergi mana?',
                 'body'=>'Belajar Laravel di rumah sahaja.',
-                'author'=>'Kamal'
+                'author'=>'Zainal'
             ],
         ];
+
 
         return view('posts.userposts',compact('posts'));
 
     }
 }
+
+
