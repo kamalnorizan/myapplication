@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $table = 'posts';
 
