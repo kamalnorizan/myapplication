@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         $postsDB = DB::table('posts')->get();
-        dd($postsDB);
+        // dd($postsDB);
         $comment = 'This is a new comment';
         // return view('posts.index',[
         //     'posts'=>$posts,

@@ -45,3 +45,7 @@ Route::resource('/posts', PostController::class)->only('index','edit');
 //     Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
 //     Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
 // )->except('index','edit','destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
