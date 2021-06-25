@@ -6,33 +6,23 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    @foreach ($posts as $post)
+    <div class="row justify-content-center mt-3">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Title</div>
+                <div class="card-header">{{ $post->title }}</div>
 
                 <div class="card-body">
-                    @foreach ($posts as $key=>$post)
-                        {{ $key+1 }}. {{ $post->title }} - {{ $post->id }} <br>
-                    @endforeach
+                    {{ $post->description }}
+                </div>
+
+                <div class="card-footer">
+                    <h5>Comment:</h5>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Comment</div>
-
-                <div class="card-body">
-                    @foreach ($comments as $comment)
-                        {{ $comment->content }}
-                        <hr>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 @endsection
 

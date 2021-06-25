@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Comment;
 use DB;
 use Carbon\Carbon;
@@ -26,29 +27,29 @@ class PostController extends Controller
         // $posts = Post::where('id','<',50)->where('title','like','%fa%')->get();
 
         // Select * from posts where id < 50 AND title like '%fa%'
-        $posts = Post::where([
-                    ['id','<',50],
-                    ['title','like','%fa%']
-                ])
-                ->orWhere([
-                    ['id','>',10],
-                    ['title','like','%as%']
-                ])
-                ->get();
+        // $posts = Post::where([
+        //             ['id','<',50],
+        //             ['title','like','%fa%']
+        //         ])
+        //         ->orWhere([
+        //             ['id','>',10],
+        //             ['title','like','%as%']
+        //         ])
+        //         ->get();
+
+        $posts = Post::paginate(10);
 
         $post = Post::first();
-        dd($post->comments->content);
-        dd($post->user->name);
 
         // Select * from comments
         // Perbezaan query builder dan eloquent
-        $comments2 = Comment::with()->where('id','<',30)->get();
+        // $comments2 = Comment::with()->where('id','<',30)->get();
 
-        $comments = DB::table('comments')->where('id','<','30')->get();
-        dd($comments->count());
+        // $comments = DB::table('comments')->where('id','<','30')->get();
+        // dd($comments->first());
 
 
-        return view('posts.index',compact('posts','comments'));
+        return view('posts.index',compact('posts'));
     }
 
     /**
