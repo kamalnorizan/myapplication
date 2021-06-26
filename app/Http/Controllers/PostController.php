@@ -37,9 +37,28 @@ class PostController extends Controller
         //         ])
         //         ->get();
 
-        $posts = Post::paginate(10);
+        // $posts = Post::with(['user'=> function($q){
+        //     $q->where('id',1);
+        // },'comments.user'])->get();
+
+        $posts = Post::with('user','comments.user')->get();
 
         $post = Post::first();
+
+        $comments = Comment::with('post.user.posts','user.posts')->get();
+        // dd($comments->first());
+
+        // $posts = DB::table('posts')
+        //         ->join('users','posts.user_id','=','users.id')
+        //         ->leftjoin('comments','posts.id','=','comments.post_id')
+        //         ->leftjoin('users as userComment','comments.user_id','=','userComment.id')
+        //         ->select('posts.*','comments.*','users.name as userName', 'userComment.name as userCommentName')
+        //         ->get();
+
+        // $comments = DB::table('comments')
+        //         ->join('users','comments.user_id','users.id')
+        //         ->select('comments.id as comment_id','comments.*', 'users.*')
+        //         ->get();
 
         // Select * from comments
         // Perbezaan query builder dan eloquent
@@ -129,26 +148,16 @@ class PostController extends Controller
 
     public function userposts()
     {
-        $posts = [
-            [
-                'title'=>'Masak apa hari ini?',
-                'body'=>'Gulai Ikan',
-                'author'=>'Kamal'
-            ],
-            [
-                'title'=>'Masak apa malam ini?',
-                'body'=>'Sambal Tempoyak',
-                'author'=>'Amir'
-            ],
-            [
-                'title'=>'Hari ini pergi mana?',
-                'body'=>'Belajar Laravel di rumah sahaja.',
-                'author'=>'Zainal'
-            ],
-        ];
+        $comments = DB::table('comments')
+                ->join('users','comments.user_id','users.id')
+                ->join('posts','comments.post_id','posts.id')
+                ->select('comments.id as comment_id','posts.*', 'comments.*', 'users.*')
+                ->get();
+        $commentsEloquent = Comment::with('user','post')->get();
+        // dd($comments);
 
 
-        return view('posts.userposts',compact('posts'));
+        return view('posts.userposts',compact('comments','commentsEloquent'));
 
     }
 }

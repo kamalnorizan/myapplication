@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+// use DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,10 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// DB::listen(function ($event) {
+//     dump($event->sql);
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,3 +54,7 @@ Route::resource('/posts', PostController::class)->only('index','edit');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('sendemail', function(){
+    dispatch(new App\Jobs\SendEmailAtNight());
+});

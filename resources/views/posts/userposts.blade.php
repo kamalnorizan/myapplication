@@ -7,19 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- {{ $posts }} --}}
-    {{-- @foreach ($posts as $post)
-        Title : {{ $post['title'] }} <br>
-        Body : {{ $post['body'] }} <br>
-        Author : {{ $post['author'] }} <hr>
+    @foreach ($comments as $comment)
+        {{ $comment->title }} - {{ $comment->name }}
+    @endforeach
+{{--
+    @foreach ($commentsEloquent as $commentE)
+        {{ $commentE->post->title }} - {{ $commentE->user->name }}
     @endforeach --}}
 
-    @for ($i=0;$i< sizeOf($posts); $i++)
-        Title : {{ $posts[$i]['title'] }} <br>
-        Body : {{ $posts[$i]['body'] }} <br>
-        Author : {{ $posts[$i]['author'] }} <hr>
-    @endfor
 
-    
 </body>
 </html>
